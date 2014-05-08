@@ -72,6 +72,8 @@ just use file as log directly.
             port = 1081;
     }
 
+A socks server is specified here by `type,ip,port`, which redsocks will connect to.
+
 ### dnsmasq setup
 
 Split your dnsmasq into multiple files in `/etc/dnsmasq.d`. This gives you flexibility.
