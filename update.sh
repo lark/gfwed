@@ -12,14 +12,14 @@ FN_SET=/etc/dnsmasq.d/03-ipsets
 awk -v dns=${DNS} '{
 	if ($0 ~ /^#/ || $0 ~ /^[ \t]*$/)
 		print;
-	else if ($0 ~ /^[_a-zA-Z0-9-\.]+$/)
+	else if ($0 ~ /^[a-zA-Z0-9._-]+$/)
 		printf "server=/%s/%s\n", $0, dns; 
 }' gfwed.list > ${FN_SRV}
 
 awk -v ipset=${IPSET} '{
 	if ($0 ~ /^#/ || $0 ~ /^[ \t]*$/)
 		print;
-	else if ($0 ~ /^[_a-zA-Z0-9-\.]+$/)
+	else if ($0 ~ /^[a-zA-Z0-9._-]+$/)
 		printf "ipset=/%s/%s\n", $0, ipset; 
 }' gfwed.list > ${FN_SET}
 
